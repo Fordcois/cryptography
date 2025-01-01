@@ -41,8 +41,8 @@ Develop a tool to automatically verify the validity of potential outputs. For ex
 
 <details open>
 <summary>Utilities & Acknowledgements </summary>
-[Cryptii.com](https://cryptii.com) is a user-friendly web tool that allows you to create, decode, and test a variety of ciphers. 
-[Word Counter ](https://wordcounter.net/) calculates the length of text including word count & character count.
+[Cryptii](https://www.cryptii.com) is a user-friendly web tool that allows you to create, decode, and test a variety of ciphers. 
+[Word Counter](https://www.wordcounter.net/) calculates the length of text including word count & character count.
 
 This Repo contains extract from a number of litery works, these extracts are all public domain have have been obtained from [Project Gutenberg](https://www.gutenberg.org/)
 </details>
