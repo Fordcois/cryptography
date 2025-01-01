@@ -1,0 +1,18 @@
+# Ignore compiled Python files
+*.pyc
+# Ignore .DS_Store files
+.DS_Store
+
+# Cache files and folders
+__pycache__
+*.cache
+*.mypy_cache/
+*.pytest_cache/
+.pytest_cache/
+.dask/
+
+# Virtual environment
+crypt_venv/
+env/
+.crypt_venv/
+.env/
