@@ -46,5 +46,7 @@ Develop a tool to automatically verify the validity of potential outputs. For ex
 
 [Word Counter](https://www.wordcounter.net/) calculates the length of text including word count & character count.
 
+[Just Words](http://www.gwicks.net/justwords.html) features extensive wordlists in plain text formats
+
 This Repo contains extract from a number of literary works, these extracts are all public domain have have been obtained from [Project Gutenberg](https://www.gutenberg.org/)
 </details>
