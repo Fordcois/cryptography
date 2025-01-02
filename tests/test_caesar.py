@@ -103,3 +103,7 @@ def test_caesar_cipher_offset_24():
 def test_caesar_cipher_offset_25():
     """Test encryption of Caesar cipher - offset 25"""
     assert caesar_cipher_encrypt('AbCdEfGhIjKlMnOpQrStUvWxYz', 25) == 'ZaBcDeFgHiJkLmNoPqRsTuVwXy'
+
+def test_caesar_cipher_leaves_punctuation():
+    """Tests that caesar cipher leaves punctiation unchanged"""
+    assert caesar_cipher_encrypt('Ab,CdE!fGhIj-KlMnOpQrStUv/Wx=Y+z', 25) == 'Za,BcD!eFgHi-JkLmNoPqRsTu/Vw=X+y'
