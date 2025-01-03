@@ -1,4 +1,4 @@
-def check_accuracy(user_answer,correct_answer):
+def check_accuracy(user_answer,correct_answer,return_sub_key=False):
     # print(f'User Answer: {user_answer}')
     # print(f'Correct Answer: {correct_answer}')
     total_characters=0
@@ -26,7 +26,10 @@ def check_accuracy(user_answer,correct_answer):
     accuracy = (correct_characters / total_characters) * 100
 
     print ( f'Passage Accuracy is {accuracy:.2f}% with {correct_letters}/{individual_letters} letters')
-
+    # TODO - Return Substitution Key in alphabetical order for ease of use
+    if return_sub_key:
+        print (substitution_key)
+        return accuracy,substitution_key
     # print (substitution_key)
     return accuracy
 
