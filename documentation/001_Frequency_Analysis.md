@@ -18,7 +18,7 @@ ABCDE
 DEFGH  
 ```
 
-I’ve written a simple script to create a Caesar cipher for encrypting texts [Link to code]. The offset can be manually set as a parameter, but if none is provided, the offset will be randomised between 1 and 25 (as 26 would result in a complete cycle where A becomes A again, and an offset of 27 is equivalent to an offset of 1).
+I’ve written a simple script to create a Caesar cipher for encrypting texts [Link to code](https://github.com/Fordcois/cryptography/blob/main/lib/encrypt_functions/caesar_cipher.py). The offset can be manually set as a parameter, but if none is provided, the offset will be randomised between 1 and 25 (as 26 would result in a complete cycle where A becomes A again, and an offset of 27 is equivalent to an offset of 1).
 
 Caesar ciphers are weak because there are only 25 possible solutions. In fact, we can use the same encryption tool to decrypt them—the second encryption offset just needs to undo the first. This can be calculated as:
 
@@ -64,7 +64,8 @@ ABCFGHIJLMNPQSTUVXZKEYWORD
 ABCDEFGHIJKLMNOPQRSTUVWXYZ  
 ```
 
-The code featured in the encryption folder features a method for encoding keyword ciphers with a simple script. [Link to code]
+The code featured in the encryption folder features a method for encoding keyword ciphers with a simple script. [Link to code](https://github.com/Fordcois/cryptography/blob/main/lib/encrypt_functions/keyword_cipher.py)
+
 ## Frequency Analysis
 
 Since using a substitution cipher preserves the structure of the text, we can use clues to deduce the substitutions for each letter. Frequency Analysis examines the occurrence of symbols in the cipher text and compares these to their typical frequencies in regular English language and we should see a strong correlation between the frequency of symbols in the cipher text and the letters they represent in plain English.

@@ -1,6 +1,13 @@
 ## About
 This repository is a documentation of my exploration of cryptography, focusing on creating and cracking ciphers. It serves as a record of my learning and experiments, with the goal of improving decryption accuracy and speed while addressing increasingly complex ciphers. This is an evolving and ongoing project.
 
+You can learn more about my thought processes and methodologies in the accompanying posts:
+
+[Checking Results](https://github.com/Fordcois/cryptography/blob/main/documentation/000_checking_results.md)
+
+[Caesar Ciphers & Frequency Analysis](https://github.com/Fordcois/cryptography/blob/main/documentation/001_Frequency_Analysis.md)
+
+
 ## Current Scope & Goals
 
 ### Establishing A Framework
