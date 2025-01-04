@@ -4,10 +4,12 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 #Utilities
 from utilities.txt_import import read_txt
-from utilities.check_accuracy import check_accuracy
+from lib.validation_tools.check_accuracy import check_accuracy
+from lib.validation_tools.valid_solution import valid_words
 
 #Encryption Functions
 from lib.encrypt_functions.caesar_cipher import caesar_cipher_encrypt
+from lib.encrypt_functions.keyword_cipher import keyword_cipher_encrypt
 
 
 # A 	8.2% 	
@@ -38,9 +40,7 @@ from lib.encrypt_functions.caesar_cipher import caesar_cipher_encrypt
 # Z 	0.074% 	
 
 
-
-
-eng_freq_dict = {1: 'E', 2: 'T', 3: 'A', 4: 'O', 5: 'N', 6: 'R', 7: 'I', 8: 'S', 9: 'H', 10: 'D', 11: 'L', 12: 'F', 13: 'C', 14: 'M', 15: 'U', 16: 'G', 17: 'Y', 18: 'P', 19: 'W', 20: 'B', 21: 'V', 22: 'K', 23: 'J', 24: 'X', 25: 'Z', 26: 'Q'}
+eng_freq_dict = {1: 'E', 2: 'T', 3: 'A', 4: 'O', 5: 'I', 6: 'N', 7: 'S', 8: 'H', 9: 'R', 10: 'D', 11: 'L', 12: 'U', 13: 'C', 14: 'W', 15: 'M', 16: 'F', 17: 'Y', 18: 'G', 19: 'P', 20: 'B', 21: 'V', 22: 'K', 23: 'J', 24: 'X', 25: 'Q', 26: 'Z'}
 
 # TODO - Rename to frequency analysis dict
 def create_substitution_dict(text):
@@ -63,12 +63,6 @@ def create_substitution_dict(text):
 
 def decode_with_substituion(cipher_text):
     cipher_freq_dict = create_substitution_dict(cipher_text)
-    # print ('Cipher Frequency Dictionary')
-    # print (cipher_freq_dict)
-    # print(' ')
-    # print ('English Frequency Dictionary')
-    # print (eng_freq_dict)
-    
     decoded_text = ''
     for letter in cipher_text:
         if letter.isalpha():
@@ -87,44 +81,27 @@ def decode_with_substituion(cipher_text):
 def get_text_results(filename):
     print(f'Filename: {filename}')
     text = read_txt(f'cipher_texts/{filename}.txt')
+    first_cipher_text = keyword_cipher_encrypt('charlesdickens',text)
+    cipher_text = caesar_cipher_encrypt(first_cipher_text,3)
 
-    print(create_substitution_dict(text))
-    cipher_text = caesar_cipher_encrypt(text,3)
-    print (cipher_text[0:100])
     decoded = decode_with_substituion(cipher_text)
-    acc,key = check_accuracy(decoded,text,True)
-    print(key.keys())
-    print(key.values())
-    print('')
-    for alpha in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-        print (f'{key[alpha]}')
+    print(decoded[0:51]) 
+
 
 get_text_results('a_tale_of_two_cities')
-# get_text_results('crime_and_punishment')
-# get_text_results('great_gatsby')
-# get_text_results('moby_dick')
 
 
-
-
-# # Encrypt plain text
-# plain_text = read_txt('cipher_texts/crime_and_punishment.txt')
-# cipher_text = caesar_cipher_encrypt(plain_text,3)
-# # # Decode cipher text
-# decoded = decode_with_substituion(cipher_text)
-# # check_accuracy(plain_text,decoded)
-
-
-# print (len(plain_text))
-# print(check_accuracy(plain_text,decoded))
 
 
 
 # the English letter frequency sequence as 
-# ETAONRISHDLFCMUGYPWBVKJXZQ' 
+
 # the most common letter pairs as 
 # "TH HE AN RE ER IN ON AT ND ST ES EN OF TE ED OR TI HI AS TO", 
 
 # the most common doubled letters as "LL EE SS OO TT FF RR NN PP CC".
+
+
+
 
 
