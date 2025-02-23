@@ -6,6 +6,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from utilities.txt_import import read_txt
 from lib.validation_tools.check_accuracy import check_accuracy
 from lib.validation_tools.valid_solution import valid_words
+from utilities.CipherSymbol_class import CipherSymbol
 
 #Encryption Functions
 from lib.encrypt_functions.caesar_cipher import caesar_cipher_encrypt
@@ -88,11 +89,9 @@ def get_text_results(filename):
     print(decoded[0:51]) 
 
 
-get_text_results('a_tale_of_two_cities')
 
 
-
-
+# Lets work on Turning cipher objects into classes
 
 # the English letter frequency sequence as 
 
