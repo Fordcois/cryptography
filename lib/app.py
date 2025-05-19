@@ -81,7 +81,7 @@ def decode_with_substituion(cipher_text):
 
 def get_text_results(filename):
     print(f'Filename: {filename}')
-    text = read_txt(f'cipher_texts/{filename}.txt')
+    text = read_txt(f'plain_texts/{filename}.txt')
     first_cipher_text = keyword_cipher_encrypt('charlesdickens',text)
     cipher_text = caesar_cipher_encrypt(first_cipher_text,3)
 

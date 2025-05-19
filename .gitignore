@@ -16,3 +16,6 @@ crypt_venv/
 env/
 .crypt_venv/
 .env/
+
+# Specific files
+frequency_analysis/englishwordlist.txt
