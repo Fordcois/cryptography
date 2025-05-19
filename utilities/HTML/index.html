@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Cipher Tool</title>
+<script type="module">
+    import { h, render } from 'https://esm.sh/preact';
+    import { useState, useCallback } from 'https://esm.sh/preact/hooks';
+    import htm from 'https://esm.sh/htm';
+
+    const html = htm.bind(h);
+
+    const App = () => {
+    const [cipherDict, setCipherDict] = useState({
+        'a': 'b', 'b': 'c', 'c': 'd', 'd': 'e', 'e': 'f', 'f': 'g', 'g': 'h',
+        'h': 'i', 'i': 'j', 'j': 'k', 'k': 'l', 'l': 'm', 'm': 'n', 'n': 'o',
+        'o': 'p', 'p': 'q', 'q': 'r', 'r': 's', 's': 't', 't': 'u', 'u': 'v',
+        'v': 'w', 'w': 'x', 'x': 'y', 'y': 'z', 'z': 'a'
+    });
+    
+    const updateLetterinCipher = useCallback((plaintextLetter, outputLetter) => {
+        setCipherDict(prev => ({...prev,[plaintextLetter.toLowerCase()]: outputLetter.toLowerCase()}));
+    }, []);
+
+    const [plaintext, setPlaintext] = useState('');
+    
+    const translate = useCallback((text) => {
+        let output = '';
+        for (let letter of text) {
+        const lowerLetter = letter.toLowerCase();
+        if (cipherDict[lowerLetter]) {
+            const translated = cipherDict[lowerLetter];
+            output += letter === lowerLetter ? translated : translated.toUpperCase();
+        } else {output += letter;} // Keep non-alphabet characters as is
+        }
+        return output;
+    }, [cipherDict]);
+
+    const resetToCaesar = useCallback(() => {
+        const newDict = {};
+        const letters = 'abcdefghijklmnopqrstuvwxyz';
+        for (let i = 0; i < letters.length; i++) {
+            newDict[letters[i]] = letters[(i + 1) % letters.length];
+        }
+        setCipherDict(newDict);}, []);
+
+
+
+    return html`
+<div style=${styles.container}>
+<h1>Cipher Tool</h1>
+
+<div style=${styles.section}>
+<label style=${styles.label}>Plain text:</label>
+<br />
+
+<textarea 
+    rows="6" 
+    cols="50" 
+    value=${plaintext} 
+    onInput=${e => setPlaintext(e.target.value)} 
+    style=${styles.textarea}
+/>
+<p>Output: <strong style=${styles.output}>${translate(plaintext)}</strong></p>
+</div>
+
+<div style=${styles.section}>
+    <h3 style=${styles.subheader}>Cipher Mappings:</h3>
+<div style=${styles.buttonGroup}>
+    <button onClick=${resetToCaesar} style=${styles.button}>Reset to Caesar Cipher</button>
+</div>
+    <div style=${styles.mappingGrid}>
+        ${'abcdefghijklmnopqrstuvwxyz'.split('').map(letter => 
+        html`<div key=${letter} style=${styles.mappingRow}>
+        <span style=${styles.letter}>${letter}</span>
+        <span>→</span>            
+
+        <input 
+        type="text" 
+        maxLength="1"
+        value=${cipherDict[letter] || ''}
+        onInput=${e => updateLetterinCipher(letter, e.target.value)} 
+        style=${styles.mappingInput}
+        />
+    </div>`
+    )}
+</div>
+</div>
+</div>
+      `;
+    };
+
+    const styles = {
+      container: {
+        fontFamily: 'sans-serif',
+        padding: '2rem',
+        maxWidth: '800px',
+        margin: 'auto',
+      },
+      section: {
+        marginBottom: '2rem',
+        padding: '1rem',
+        backgroundColor: '#f5f5f5',
+        borderRadius: '8px',
+      },
+      label: {
+        fontWeight: 'bold',
+        marginBottom: '0.5rem',
+        display: 'block',
+      },
+      textarea: {
+        width: '100%',
+        padding: '0.5rem',
+        borderRadius: '4px',
+        border: '1px solid #ddd',
+        fontFamily: 'monospace',
+      },
+      output: {
+        color: '#0066cc',
+        fontFamily: 'monospace',
+        fontSize: '1.1em',
+      },
+      subheader: {
+        marginTop: '0',
+        color: '#333',
+      },
+      buttonGroup: {
+        display: 'flex',
+        gap: '1rem',
+        marginBottom: '1rem',
+      },
+      button: {
+        padding: '0.5rem 1rem',
+        backgroundColor: '#4CAF50',
+        color: 'white',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+      },
+      mappingGrid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
+        gap: '0.5rem',
+      },
+      mappingRow: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+      },
+      letter: {
+        fontWeight: 'bold',
+        width: '20px',
+      },
+      mappingInput: {
+        width: '30px',
+        textAlign: 'center',
+        textTransform: 'lowercase',
+        padding: '0.25rem',
+      },
+    };
+
+    render(html`<${App} />`, document.body);
+  </script>
+</head>
+<body></body>
+</html>
