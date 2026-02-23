@@ -55,5 +55,7 @@ Develop a tool to automatically verify the validity of potential outputs. For ex
 
 [Just Words](http://www.gwicks.net/justwords.html) features extensive wordlists in plain text formats
 
+[Peter Norvig - English Letter Frequency Counts](https://norvig.com/mayzner.html) explores and expands upon the work of [Mark Mayzner](https://www.researchgate.net/profile/Mark-Mayzner) in ngram frequency
+
 This Repo contains extract from a number of literary works, these extracts are all public domain have have been obtained from [Project Gutenberg](https://www.gutenberg.org/)
 </details>

@@ -18,4 +18,9 @@ env/
 .env/
 
 # Specific files
-frequency_analysis/englishwordlist.txt
+lib/englishwordlist.txt
+plain_texts/a_tale_of_two_cities.txt
+plain_texts/crime_and_punishment.txt
+plain_texts/great_gatsby.txt
+plain_texts/moby_dick.txt
+
