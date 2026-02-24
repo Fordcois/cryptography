@@ -70,6 +70,10 @@ The code featured in the encryption folder features a method for encoding keywor
 
 Since using a substitution cipher preserves the structure of the text, we can use clues to deduce the substitutions for each letter. Frequency Analysis examines the occurrence of symbols in the cipher text and compares these to their typical frequencies in regular English language and we should see a strong correlation between the frequency of symbols in the cipher text and the letters they represent in plain English.
 
+A consideration of frequency analysis is also in determining the language of the cipher message. Depending on the message and length, we would not expect a perfect mapping to English, but it may be the case where frequencies can suggest the plaintext is in another language entirely. For example, in German the letter E is nearly 20% of letters and in Finnish vowels are a lot more common, so if we are examining a cipher of unknown origin this might help us understand.
+
+It may be the case where the frequency of letters in a ciphertext aligns with their expected frequency in English, yet it still reads as gibberish. In this case, we are not dealing with a substitution cipher but a transposition cipher. The transposition may be instead of the substitution, or it may be as well as.
+
 Within the project files, I have extracts from several famous public domain novels to use as examples—including the first chapter of _A Tale of Two Cities_ by Charles Dickens, the first chapter of _The Great Gatsby_ by F. Scott Fitzgerald, and the first chapter of _Moby-Dick_ by Herman Melville, as well as the complete text of _Crime and Punishment_ by Dostoevsky.
 
 Using a simple script, we can count the frequency of each letter within the text. For example, if we analyse the extract from _A Tale of Two Cities_, the top row shows the most common letters in the extract, while the bottom row represents the most common letters in English.
@@ -96,3 +100,6 @@ Ht was tre best ou thfes, ht was tre wonst ou thfes
 Which is definitely not perfect but arguably guessable, especially if we have some context clues about the contents of the message.
 
 Just looking at the above line we could probably guess that 'WAS' & 'BEST' is correct. Knowing that 't' is probably correct we can swap the h's with i's .. and so on, even more so if we have the rest of the message to draw on - but l want to either automate this completely or at least vastly reduce human input.
+
+A word list is included in the repo to assist with verification of solutions, but it can also help when it comes to identifying ciphers that have pre-defined spaces. For example, in the above we see multiple two/three letter words and can use common usage to determine frequent words such as 'the', 'of' etc, even more so if we were to see single characters as these are extremly likely to be either I or A.
+
