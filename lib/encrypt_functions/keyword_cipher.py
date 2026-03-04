@@ -22,9 +22,3 @@ def keyword_cipher_encrypt(keyword,plaintext):
             decoded_message += char
     return decoded_message
 
-
-
-
-
-
-print(keyword_cipher_encrypt('keyword','plaintext'))

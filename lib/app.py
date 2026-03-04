@@ -1,16 +1,17 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
-
+import logging
 #Utilities
 from utilities.txt_import import read_txt
 from lib.validation_tools.check_accuracy import check_accuracy
 from lib.validation_tools.valid_solution import valid_words
-from utilities.CipherSymbol_class import CipherSymbol
 
 #Encryption Functions
 from lib.encrypt_functions.caesar_cipher import caesar_cipher_encrypt
 from lib.encrypt_functions.keyword_cipher import keyword_cipher_encrypt
+
+from lib.CipherClass import Cipher
 
 
 # A 	8.2% 	
@@ -89,18 +90,7 @@ def get_text_results(filename):
     print(decoded[0:51]) 
 
 
-
-
-# Lets work on Turning cipher objects into classes
-
-# the English letter frequency sequence as 
-
-# the most common letter pairs as 
-# "TH HE AN RE ER IN ON AT ND ST ES EN OF TE ED OR TI HI AS TO", 
-
-# the most common doubled letters as "LL EE SS OO TT FF RR NN PP CC".
-
-
-
-
-
+C = Cipher('ABCABD')
+C.analyse_frequency()
+C.return_symbols()
+C.details()

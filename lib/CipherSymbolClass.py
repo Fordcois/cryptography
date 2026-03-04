@@ -85,8 +85,8 @@ class CipherSymbol:
     
     
 
-# Example usage
-H=CipherSymbol('H')
-H.calculate_likelyhood_single_letter(10000,'E',0.49)
-test_dict = {'A':15.6,'B':9.6,'C':2.8}
-H.calculate_all_letters(200,test_dict)
+# # Example usage
+# H=CipherSymbol('H')
+# H.calculate_likelyhood_single_letter(10000,'E',0.49)
+# test_dict = {'A':15.6,'B':9.6,'C':2.8}
+# H.calculate_all_letters(200,test_dict)
