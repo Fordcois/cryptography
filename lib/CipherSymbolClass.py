@@ -6,6 +6,7 @@ class CipherSymbol:
         self.character = character
         self.solved = False
         self.letter_confidence = {letter: 0.0 for letter in string.ascii_uppercase}
+        self.appearances: int = 1
         self.single_frequency_mapping = {
 'E': 12.49,
 'A':8.04,
@@ -34,6 +35,8 @@ class CipherSymbol:
 'Q':0.12,
 'Z':0.09
 }
+    def increase_appearances(self):
+        self.appearances += 1
 
     def best_guess(self,return_value_dict=False):
         most_likely_letters = {k: v for k, v in self.letter_confidence.items() if v == max(self.letter_confidence.values())}

@@ -12,10 +12,10 @@
 
     const App = () => {
     const [cipherDict, setCipherDict] = useState({
-        'a': 'b', 'b': 'c', 'c': 'd', 'd': 'e', 'e': 'f', 'f': 'g', 'g': 'h',
-        'h': 'i', 'i': 'j', 'j': 'k', 'k': 'l', 'l': 'm', 'm': 'n', 'n': 'o',
-        'o': 'p', 'p': 'q', 'q': 'r', 'r': 's', 's': 't', 't': 'u', 'u': 'v',
-        'v': 'w', 'w': 'x', 'x': 'y', 'y': 'z', 'z': 'a'
+        'a': 'a', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e', 'f': 'f', 'g': 'g',
+        'h': 'h', 'i': 'i', 'j': 'j', 'k': 'k', 'l': 'l', 'm': 'm', 'n': 'n',
+        'o': 'o', 'p': 'p', 'q': 'q', 'r': 'r', 's': 's', 't': 't', 'u': 'u',
+        'v': 'v', 'w': 'w', 'x': 'x', 'y': 'y', 'z': 'z'
     });
     
     const updateLetterinCipher = useCallback((plaintextLetter, outputLetter) => {
@@ -36,11 +36,11 @@
         return output;
     }, [cipherDict]);
 
-    const resetToCaesar = useCallback(() => {
+    const reset = useCallback(() => {
         const newDict = {};
         const letters = 'abcdefghijklmnopqrstuvwxyz';
         for (let i = 0; i < letters.length; i++) {
-            newDict[letters[i]] = letters[(i + 1) % letters.length];
+            newDict[letters[i]] = letters[(i) % letters.length];
         }
         setCipherDict(newDict);}, []);
 
@@ -67,7 +67,7 @@
 <div style=${styles.section}>
     <h3 style=${styles.subheader}>Cipher Mappings:</h3>
 <div style=${styles.buttonGroup}>
-    <button onClick=${resetToCaesar} style=${styles.button}>Reset to Caesar Cipher</button>
+    <button onClick=${reset} style=${styles.button}>Reset</button>
 </div>
     <div style=${styles.mappingGrid}>
         ${'abcdefghijklmnopqrstuvwxyz'.split('').map(letter => 

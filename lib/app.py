@@ -89,10 +89,5 @@ def get_text_results(filename):
     decoded = decode_with_substituion(cipher_text)
     print(decoded[0:51]) 
 
-
-C = Cipher('ABCABD')
+C=Cipher(read_txt('cipherTexts/SSinghCodeChallenge01.txt'))
 C.analyse_frequency()
-C.return_symbols()
-C.details()
-cipher=read_txt('cipherTexts/SSinghCodeChallenge01.txt')
-print(cipher)

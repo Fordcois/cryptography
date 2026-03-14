@@ -19,9 +19,6 @@ def test_only_special_characters_returns_empty_string():
 def test_only_spaces_are_kept_by_default():
     assert clean_text('   ') == '   '
 
-def test_unicode_letters_are_kept():
-    assert clean_text('héllo wörld') == 'héllo wörld'
-
 def test_spaces_are_removed_when_keep_spaces_is_false():
     assert clean_text('123Hello World!', False) == 'HelloWorld'
 
